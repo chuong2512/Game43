@@ -4,7 +4,7 @@ using JumpFrog;
 using TMPro;
 using UnityEngine;
 
-public class HighPoint : MonoBehaviour
+public class HighPointing : MonoBehaviour
 {
     public TextMeshProUGUI textMeshProUgui;
 

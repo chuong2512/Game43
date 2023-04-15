@@ -48,7 +48,7 @@ public class GameManager : Singleton<GameManager>
         if (Input.GetMouseButtonDown(0) && currentState != State.Playing)
         {
             SetState(State.Playing);
-            PlayerController.Instance.Play();
+            DirPlayerController.Instance.Play();
         }
     }
 
@@ -61,10 +61,11 @@ public class GameManager : Singleton<GameManager>
     {
     }
 
-
-    public void Help()
+    public void Home()
     {
+        SceneManager.LoadScene("Menu");
     }
+    
 
     public void ShowLose()
     {
@@ -84,9 +85,10 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene("Game");
     }
 
-    public void Home()
+    
+    
+    public void Help()
     {
-        SceneManager.LoadScene("Menu");
     }
 
     public void Continue()

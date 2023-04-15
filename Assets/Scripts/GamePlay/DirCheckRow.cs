@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckRow : MonoBehaviour
+public class DirCheckRow : MonoBehaviour
 {
     public float side;
     // Use this for initialization

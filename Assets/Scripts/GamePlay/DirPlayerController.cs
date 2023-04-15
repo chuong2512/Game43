@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using JumpFrog;
 using UnityEngine;
 
-public class PlayerController : Singleton<PlayerController>
+public class DirPlayerController : Singleton<DirPlayerController>
 {
     public Rigidbody2D Rigidbody2D;
     public Animator animator;
@@ -18,10 +18,7 @@ public class PlayerController : Singleton<PlayerController>
         animator.SetTrigger("Tap");
     }
     
-    public void Play()
-    {
-        play = true;
-    }
+    
 
     public float speed = 2;
     
@@ -31,5 +28,10 @@ public class PlayerController : Singleton<PlayerController>
         {
             GameManager.Instance.ShowLose();
         }
+    }
+    
+    public void Play()
+    {
+        play = true;
     }
 }

@@ -4,21 +4,13 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class Spawnnn : MonoBehaviour
+public class Spawnnning : MonoBehaviour
 {
     public GameObject spawnTree;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        posY = transform.position.y;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+    
 
     public Transform lastChild;
 
@@ -40,5 +32,10 @@ public class Spawnnn : MonoBehaviour
         var tree = Instantiate(spawnTree, transform).transform;
         tree.SetPositionAndRotation(lastChild.position + Vector3.up * 1.8f, lastChild.rotation);
         lastChild = tree;
+    }
+    
+    void Start()
+    {
+        posY = transform.position.y;
     }
 }

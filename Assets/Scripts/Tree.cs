@@ -15,18 +15,7 @@ public class Tree : MonoBehaviour
     public float speed = 2;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        if (spawn)
-        {
-            if (Random.Range(0, 3) == 0)
-            {
-                index = Random.Range(0, 2);
-                
-                objs[index].SetActive(true);
-            }
-        }
-    }
+    
 
     [Button]
     public void Drop(bool right)
@@ -41,7 +30,18 @@ public class Tree : MonoBehaviour
         Destroy(this);
     } 
     
-    
+    void Start()
+    {
+        if (spawn)
+        {
+            if (Random.Range(0, 3) == 0)
+            {
+                index = Random.Range(0, 2);
+                
+                objs[index].SetActive(true);
+            }
+        }
+    }
     // Update is called once per frame
     void Update()
     {

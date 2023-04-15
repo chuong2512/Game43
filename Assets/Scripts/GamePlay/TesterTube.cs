@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 public class TesterTube : MonoBehaviour
 {
     public List<Color> colors = new List<Color>();
-    public ColorTube[] colour;
+    public TheColorTube[] colour;
 
     public GameObject ChooseObj;
 
@@ -44,11 +44,7 @@ public class TesterTube : MonoBehaviour
         colors = new List<Color>();
     }
 
-    public void AddColor(Color color)
-    {
-        colors.Add(color);
-        Painting();
-    }
+    
     public void SetFullColor(Color color)
     {
         colors = new List<Color>();
@@ -68,7 +64,11 @@ public class TesterTube : MonoBehaviour
         Painting();
     }
 
-    
+    public void AddColor(Color color)
+    {
+        colors.Add(color);
+        Painting();
+    }
 
     public void MoveToTube(TesterTube moveTube, bool checkColor = false)
     {

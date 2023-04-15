@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorTube : MonoBehaviour
+public class TheColorTube : MonoBehaviour
 {
    public SpriteRenderer spriteRenderer;
 

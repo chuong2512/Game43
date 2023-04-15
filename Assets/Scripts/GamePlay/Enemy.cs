@@ -11,13 +11,7 @@ public class Enemy : MonoBehaviour
     public Sprite change;
 
     // Start is called before the first frame update
-    void OnEnable()
-    {
-        transform.DOMove(transform.position + Vector3.down * 10.3f, Duration).SetEase(Ease.Linear).OnComplete(() =>
-        {
-            ShowLose();
-        });
-    }
+    
 
     private void ShowLose()
     {
@@ -35,5 +29,13 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+    
+    void OnEnable()
+    {
+        transform.DOMove(transform.position + Vector3.down * 10.3f, Duration).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            ShowLose();
+        });
     }
 }
