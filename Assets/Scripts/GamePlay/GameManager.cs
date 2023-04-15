@@ -22,9 +22,6 @@ public class GameManager : Singleton<GameManager>
 
     public TextMeshProUGUI point, highPoint;
 
-    public GameObject tap;
-    public GameObject tap1;
-
     public GameObject[] respawns;
 
     public void SetState(State state)
@@ -51,8 +48,6 @@ public class GameManager : Singleton<GameManager>
         if (Input.GetMouseButtonDown(0) && currentState != State.Playing)
         {
             SetState(State.Playing);
-            tap.SetActive(false);
-            tap1.SetActive(true);
             PlayerController.Instance.Play();
         }
     }
@@ -77,11 +72,11 @@ public class GameManager : Singleton<GameManager>
 
         SetState(State.Lose);
 
-        point.SetText($"Your Eggs : {TheLevelTMP.Instance.point}");
+        point.SetText($"Your Point : {TheLevelTMP.Instance.point}");
 
         DirGameDataManager.Ins.playerData.SetPoint(TheLevelTMP.Instance.point);
 
-        highPoint.SetText($"Best Eggs : {DirGameDataManager.Ins.playerData.point}");
+        highPoint.SetText($"High Point : {DirGameDataManager.Ins.playerData.point}");
     }
 
     public void ReStart()
@@ -96,9 +91,9 @@ public class GameManager : Singleton<GameManager>
 
     public void Continue()
     {
-        if (DirGameDataManager.Ins.playerData.intHelp >= 10)
+        if (DirGameDataManager.Ins.playerData.intHelp >= 100)
         {
-            DirGameDataManager.Ins.playerData.SubHelp(10);
+            DirGameDataManager.Ins.playerData.SubHelp(100);
             loseObj.SetActive(false);
 
             respawns = GameObject.FindGameObjectsWithTag("Enemy");
