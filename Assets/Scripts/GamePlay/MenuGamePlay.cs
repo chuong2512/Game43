@@ -5,29 +5,32 @@ using UnityEngine.SceneManagement;
 
 public class MenuGamePlay : MonoBehaviour
 {
+    public GameObject Sub;
+
     // Start is called before the first frame update
     void Start()
     {
-        
     }
-    
+
     public void Quit()
     {
         Application.Quit();
     }
-    
+
     public void Play()
     {
-        SceneManager.LoadScene("Game");
+        if (DirGameDataManager.Ins.playerData.time > 0)
+        {
+            SceneManager.LoadScene("Game");
+        }
+        else
+        {
+            Sub.SetActive(true);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
-
-    
-
-    
 }

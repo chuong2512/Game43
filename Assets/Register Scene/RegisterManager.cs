@@ -35,7 +35,7 @@ public class RegisterManager : MonoBehaviour
             checkTime = TimeSpan.Zero;
             DirGameDataManager.Ins.playerData.ResetTime();
         }
-        
+
 
         buttonContinue.onClick.AddListener(OnClickButton);
 
@@ -44,13 +44,7 @@ public class RegisterManager : MonoBehaviour
 
     private void OnClickButton()
     {
-        if (checkTime.TotalSeconds <= 0)
-        {
-        }
-        else
-        {
-            SceneManager.LoadScene("Menu");
-        }
+        gameObject.SetActive(false);
     }
 
     public void OnPressDown(int i)
