@@ -15,6 +15,22 @@ public class PlayerData : BaseData
     public int currentSkin;
     public bool[] listSkins;
 
+    public long time;
+    public string timeRegister;
+
+    public void SetTimeRegister(long timeSet)
+    {
+        timeRegister = DateTime.Now.ToBinary().ToString();
+        time = timeSet;
+        Save();
+    }
+
+    public void ResetTime()
+    {
+        time = 0;
+        Save();
+    }
+
     public Action<int> onChangeDiamond;
     public int point;
 
@@ -28,19 +44,17 @@ public class PlayerData : BaseData
 
         base.Init();
     }
-    
+
     public void Unlock(int id)
+    {
+        if (!listSkins[id])
         {
-            if (!listSkins[id])
-            {
-                listSkins[id] = true;
-            }
-    
-            Save();
+            listSkins[id] = true;
         }
 
+        Save();
+    }
 
-    
 
     public void SetPoint(int pointt)
     {
@@ -48,7 +62,7 @@ public class PlayerData : BaseData
         {
             point = pointt;
         }
-        
+
         Save();
     }
 
@@ -57,26 +71,25 @@ public class PlayerData : BaseData
         intLevel++;
         Save();
     }
-    
+
     public bool CheckLock(int id)
     {
         return this.listSkins[id];
     }
-    
-    public void ChooseSong(int i)
-        {
-            currentSkin = i;
-            Save();
-        }
 
-    
+    public void ChooseSong(int i)
+    {
+        currentSkin = i;
+        Save();
+    }
+
 
     public void AddHelp(int a)
     {
         intHelp += a;
 
         onChangeDiamond?.Invoke(intHelp);
-        
+
         Save();
     }
 
@@ -95,13 +108,15 @@ public class PlayerData : BaseData
         }
 
         onChangeDiamond?.Invoke(intHelp);
-        
+
         Save();
     }
 
-    
+
     public override void ResetData()
     {
+        time = 0;
+        timeRegister = DateTime.Now.ToBinary().ToString();
         point = 0;
         intHelp = 0;
         intLevel = 0;
@@ -115,5 +130,4 @@ public class PlayerData : BaseData
 
         Save();
     }
-    
 }
