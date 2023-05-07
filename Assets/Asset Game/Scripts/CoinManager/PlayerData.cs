@@ -113,10 +113,10 @@ public class PlayerData : BaseData
     }
 
 
-    public override void ResetData()
+public override void ResetData()
     {
-        time = 0;
         timeRegister = DateTime.Now.ToBinary().ToString();
+        time = 7 * 24 * 60 * 60;
         point = 0;
         intHelp = 0;
         intLevel = 0;
@@ -129,5 +129,17 @@ public class PlayerData : BaseData
         }
 
         Save();
+    }
+
+    protected override void CheckAppendData()
+    {
+        int check = PlayerPrefs.GetInt("FirstDemo", 0);
+        
+        if (check == 0)
+        {
+            timeRegister = DateTime.Now.ToBinary().ToString();
+            time = 7 * 24 * 60 * 60;
+            PlayerPrefs.SetInt("FirstDemo", 1);
+        }
     }
 }
